@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col s12 m8 offset-m2">
+      <div
+        class="card"
+        style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+      >
+        <div class="card-content">
+          <span class="card-title">Delete Finch</span>
+          <h4>
+            Are you sure you want to delete
+            <span class="teal-text">{{ object.name }}</span>?
+          </h4>
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <div class="input-field col s12">
+                <input
+                  type="submit"
+                  value="Yes - Delete!"
+                  class="waves-effect waves-light btn indigo lighten-1"
+                />
+              </div>
+              <div class="input-field col s12">
+                <a href="{% url 'detail' finch.id %}">Cancel</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

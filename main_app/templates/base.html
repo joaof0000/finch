@@ -1,0 +1,68 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Finch Collector</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+      /* Override default colors with summer vibes */
+      body {
+        background-color: #ffebb5; /* Light peach color */
+        font-family: "Comic Sans MS", "Comic Sans", cursive; /* Apply the font globally */
+      }
+
+      .nav-wrapper {
+        background-color: #ff6b6b; /* Vibrant coral color */
+      }
+
+      .nav-wrapper a {
+        transition: color 0.3s;
+      }
+
+      .nav-wrapper a:hover {
+        color: #ffebb5; /* On hover, light peach color */
+      }
+
+      .page-footer {
+        background-color: #4ecdc4; /* Refreshing turquoise color */
+      }
+    </style>
+  </head>
+  <body>
+    <header class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <ul>
+            <li>
+              <a href="{% url 'home' %}" class="left brand-logo"
+                >&nbsp;&nbsp;Finch Collector</a
+              >
+            </li>
+          </ul>
+          <ul class="right">
+            <li><a href="{% url 'about' %}">About</a></li>
+            <li><a href="{% url 'toys_create' %}">Add a Toy</a></li>
+            <li><a href="{% url 'toys_index' %}">View All Toys</a></li>
+            <li><a href="{% url 'finches_create' %}">Add a Finch</a></li>
+            <li><a href="{% url 'index' %}">View All My Finches</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container">{% block content %} {% endblock %}</main>
+    <footer class="page-footer #4ECDC4">
+      <div class="right">
+        All Rights Reserved, &copy; 2022 Finch Collector &nbsp;
+      </div>
+    </footer>
+  </body>
+</html>

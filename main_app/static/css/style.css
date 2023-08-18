@@ -1,0 +1,34 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+footer.page-footer {
+  padding-top: 0;
+  text-align: right;
+}
+
+/* Custom styles for the navbar */
+.navbar-fixed {
+  background-color: green; /* Changed background color to green */
+}
+
+.nav-wrapper {
+  padding: 0 20px;
+}
+
+.nav-wrapper ul li a {
+  color: yellow; /* Set the link color to yellow */
+  transition: transform 0.3s, color 0.3s; /* Animation transition */
+}
+
+/* Hover effect for navbar links */
+.nav-wrapper ul li a:hover {
+  color: white; /* Change the link color to white on hover */
+  transform: scale(1.1); /* Slightly increase the size on hover */
+}

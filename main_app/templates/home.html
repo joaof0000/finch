@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+        background-color: #ffebb5; /* Light peach color */
+    }
+
+    #pacman {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 20px solid #ff6b6b; /* Vibrant coral color for Pac-Man */
+        border-left-color: transparent;
+        animation: eat 0.5s infinite alternate, movePacman 5s linear infinite;
+        position: relative;
+        left: 300px;
+    }
+
+    @keyframes eat {
+        0% {
+            border-left-color: transparent;
+            border-top-color: #ff6b6b;
+            border-right-color: #ff6b6b;
+            border-bottom-color: #ff6b6b;
+        }
+        100% {
+            border-left-color: #ff6b6b;
+            border-top-color: #ff6b6b;
+            border-right-color: transparent;
+            border-bottom-color: #ff6b6b;
+        }
+    }
+
+    @keyframes movePacman {
+        0% {
+            left: 300px;
+        }
+        100% {
+            left: 0px;
+        }
+    }
+
+    #birds {
+        position: relative;
+        right: 50px;
+        animation: moveBirds 5s linear infinite;
+        overflow: hidden; /* Hide the birds when they move past their container */
+    }
+
+    @keyframes moveBirds {
+        0% {
+            right: 50px;
+        }
+        100% {
+            right: 300px; /* This will ensure birds disappear after being eaten */
+        }
+    }
+</style>
+
+<h1 style="color: #ff6b6b; text-align: center;">Welcome to your finch family 🐦</h1>
+
+<div style="display: flex; align-items: center; justify-content: center; height: 200px;">
+    <div id="birds">
+        🐦 🐦 🐦 🐦 🐦
+    </div>
+    <div id="pacman"></div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<div class="container">
+  <h1
+    class="center-align"
+    style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+  >
+    Toy List 🪁
+  </h1>
+
+  {% for toy in toy_list %}
+  <a href="{% url 'toys_detail' toy.id %}">
+    <div class="card hoverable #e8eaf6 indigo lighten-5">
+      <div class="card-content">
+        <!-- Bird emoji added to each toy item -->
+        <div class="left">
+          <span style="font-size: 2rem">🐦</span>
+        </div>
+        <div class="right-align" style="margin-left: 60px">
+          <span
+            class="card-title"
+            style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+            >{{ toy.name }}</span
+          >
+          <p style="font-family: 'Comic Sans MS', 'Comic Sans', cursive">
+            Color: {{ toy.color }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+{% endblock %}

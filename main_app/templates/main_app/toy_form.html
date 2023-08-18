@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% block content %}
+<div
+  class="container"
+  style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+>
+  <div class="row">
+    <div class="col s12 m8 offset-m2">
+      <div class="card">
+        <div class="card-content">
+          {% if object %}
+          <span
+            class="card-title"
+            style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+            >Edit {{object.name}}</span
+          >
+          {% else %}
+          <span
+            class="card-title"
+            style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+            >Add Toy</span
+          >
+          {% endif %}
+          <form action="" method="post">
+            {% csrf_token %}
+            <div class="row">
+              <!-- Render the inputs inside .input-field for better styling -->
+              {% for field in form %}
+              <div class="input-field col s12">
+                <label
+                  style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+                  >{{ field.label_tag }}</label
+                >
+                <!-- This will show the input field -->
+                {{ field }} {% if field.errors %}
+                <!-- Display any errors related to the field -->
+                <span
+                  class="helper-text"
+                  data-error="{{ field.errors|first }}"
+                  style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+                  >{{ field.help_text }}</span
+                >
+                {% else %}
+                <span
+                  class="helper-text"
+                  style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+                  >{{ field.help_text }}</span
+                >
+                {% endif %}
+              </div>
+              {% endfor %}
+            </div>
+            <button
+              type="submit"
+              class="btn waves-effect waves-light indigo lighten-1"
+              style="font-family: 'Comic Sans MS', 'Comic Sans', cursive"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
